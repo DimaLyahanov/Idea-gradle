@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.name;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,8 +15,8 @@ public class TestBoxTests {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920х1080";
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
     }
 
 
@@ -28,6 +29,10 @@ public class TestBoxTests {
         $("[id=permanentAddress]").setValue("GeyKoma");
         $("[id=submit]").click();
 
-        $("[id=search]").shouldHave(text("https://selenide.org"));
+        $("#output #name").shouldHave(text("Dima"));
+        $("#output #email").shouldHave(text("dimatest@mail.com"));
+        $("#output #currentAddress").shouldHave(text("LenKoma"));
+        $("#output #permanentAddress").shouldHave(text("GeyKoma"));
+
     }
 }
