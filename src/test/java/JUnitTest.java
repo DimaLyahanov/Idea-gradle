@@ -5,7 +5,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class JUnitTest {
+public class
+JUnitTest {
 
       @Test
     void firstTest() {
